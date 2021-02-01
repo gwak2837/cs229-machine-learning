@@ -1,6 +1,7 @@
 import math
 import numpy as np
 from decimal import Decimal
+from commons import is_theta_converged
 
 
 k = 0.001
@@ -33,11 +34,7 @@ def log_likelyhood_function_derivative(theta, X, y, j):
     return k * sum([(y_i - hypothesis_function(theta, X_i)) * X_i[j] for X_i, y_i in zip(X, y)])
 
 
-def is_theta_converged(theta, next_theta):
-    for theta_j, next_theta_j in zip(theta, next_theta):
-        if not math.isclose(theta_j, next_theta_j):
-            return False
-    return True
+
 
 
 training_set = np.genfromtxt("binary-logistic-regression-training-data.txt", delimiter=",").tolist()

@@ -1,4 +1,4 @@
-import math
+from commons import is_theta_converged
 
 
 def hypothesis_function(theta, x_i):
@@ -11,13 +11,6 @@ def cost_function(theta, x, y):
 
 def cost_function_derivative(theta, x, y, j):
     return sum([(hypothesis_function(theta, x_i) - y_i) * x_i[j] for x_i, y_i in zip(x, y)])
-
-
-def is_theta_converged(theta, next_theta):
-    for theta_j, next_theta_j in zip(theta, next_theta):
-        if not math.isclose(theta_j, next_theta_j):
-            return False
-    return True
 
 
 learning_rate = 0.01
