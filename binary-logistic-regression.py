@@ -34,9 +34,6 @@ def log_likelyhood_function_derivative(theta, X, y, j):
     return k * sum([(y_i - hypothesis_function(theta, X_i)) * X_i[j] for X_i, y_i in zip(X, y)])
 
 
-
-
-
 training_set = np.genfromtxt("binary-logistic-regression-training-data.txt", delimiter=",").tolist()
 
 m = len(training_set)  # 데이터 개수
